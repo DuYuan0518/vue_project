@@ -98,7 +98,12 @@ export default {
     const onSubmit = () => {
       if (data.result.length !== 0) {
         store.commit("PAY", updata(2));
-        router.push("./createorder");
+        router.push({
+          path: "/createorder",
+          query: {
+            list: data.result,
+          },
+        });
       } else {
         Toast.fail("请选择要结算的商品");
       }

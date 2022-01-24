@@ -8,6 +8,7 @@ import {
   Tab,
   Tabs,
   Toast,
+  Dialog,
   TreeSelect,
   Stepper,
   ActionBarButton,
@@ -26,6 +27,7 @@ const app = createApp(App);
 
 app
   .use(Button)
+  .use(Dialog)
   .use(Card)
   .use(Icon)
   .use(Toast)
