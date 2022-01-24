@@ -137,6 +137,7 @@ export default {
 
         // 购物车无数据时展示兜底
         if (store.state.cartList.length === 0) {
+          store.commit("EDIT", "delete");
           props.changeShow();
         }
       } else {
