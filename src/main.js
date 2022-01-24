@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import 'amfe-flexible';
 import {
+  Card,
   Button,
   Icon,
   Tab,
@@ -15,6 +16,7 @@ import {
   Checkbox,
   CheckboxGroup,
   SubmitBar,
+  ContactCard,
 } from 'vant';
 import router from './router/index';
 import './common/css/base.less';
@@ -24,6 +26,7 @@ const app = createApp(App);
 
 app
   .use(Button)
+  .use(Card)
   .use(Icon)
   .use(Toast)
   .use(Tab)
@@ -35,6 +38,7 @@ app
   .use(ActionBar)
   .use(Checkbox)
   .use(SubmitBar)
+  .use(ContactCard)
   .use(CheckboxGroup);
 
 app.use(router);
