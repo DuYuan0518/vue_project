@@ -40,12 +40,23 @@ export default {
 
     // 新增地址的按钮
     const onAdd = () => {
-      router.push("./addressedit");
+      router.push({
+        path: "./addressedit",
+        query: {
+          type: "add",
+        },
+      });
     };
 
     // 编辑地址的按钮
-    const onEdit = () => {
-      router.push("./addressedit");
+    const onEdit = (item) => {
+      router.push({
+        path: "./addressedit",
+        query: {
+          id: item.id,
+          type: "change",
+        },
+      });
     };
 
     return {

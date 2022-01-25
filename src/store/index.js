@@ -19,7 +19,7 @@ export default createStore({
         areaCode: '110101',
       },
       {
-        id: 1001,
+        id: 1002,
         name: '阿钊',
         tel: '13123456731',
         province: '广东省',
@@ -54,6 +54,33 @@ export default createStore({
         state.edit = true;
       } else {
         state.edit = !state.edit;
+      }
+    },
+    //新增地址
+    ADDADDRESS(state, value) {
+      state.userAddress.map((item) => {
+        if (value.isDefault) {
+          item.isDefault = false;
+        }
+      });
+      state.userAddress.push(value);
+    },
+    //编辑地址
+    CHANGEADDRESS(state, value) {
+      state.userAddress = state.userAddress.map((item) => {
+        if (value.isDefault) {
+          item.isDefault = fasle;
+        }
+        return item.id === value.id ? value : item;
+      });
+    },
+    //地址删除按钮
+    DELETEADDRESS(state, value) {
+      state.userAddress = state.userAddress.filter((item) => {
+        return !(value.id === item.id);
+      });
+      if (value.isDefault && state.userAddress.length) {
+        state.userAddress[0].isDefault = true;
       }
     },
   },
