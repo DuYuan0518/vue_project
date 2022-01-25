@@ -5,6 +5,8 @@ import {
   Card,
   Button,
   Icon,
+  Form,
+  Field,
   Tab,
   Tabs,
   Toast,
@@ -28,6 +30,8 @@ import store from './store';
 const app = createApp(App);
 
 app
+  .use(Form)
+  .use(Field)
   .use(Button)
   .use(AddressList)
   .use(AddressEdit)
