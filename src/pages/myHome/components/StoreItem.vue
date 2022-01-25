@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @click="toStore">
+  <div class="item" @click="toStore(item)">
     <img :src="item.pic" alt="" />
     <div class="item_right">
       <div class="title">{{ item.title }}</div>
@@ -18,8 +18,8 @@ export default {
   props: ["item"],
   setup() {
     const router = useRouter();
-    const toStore = () => {
-      router.push("./store");
+    const toStore = (item) => {
+      router.push({ path: "./store", query: { title: item.title } });
     };
     return {
       toStore,
