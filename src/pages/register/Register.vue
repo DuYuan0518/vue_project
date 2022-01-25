@@ -28,7 +28,14 @@
         >
           注册
         </van-button>
-        <van-button round block type="info" color="#ffc400" class="register">
+        <van-button
+          round
+          block
+          type="info"
+          color="#ffc400"
+          class="register"
+          @click="toLogin"
+        >
           已有账号去登录
         </van-button>
       </div>
@@ -39,22 +46,48 @@
 <script>
 import Header from "../../components/Header.vue";
 import { reactive, toRefs } from "vue";
-
+import { Toast } from "vant";
+import { useRouter } from "vue-router";
 export default {
   components: {
     Header,
   },
   setup() {
+    const router = useRouter();
     let data = reactive({
       username: "",
       password: "",
     });
-    // 提交按钮
-    const onSubmit = () => {};
 
+    //注册
+    const register = (value) => {
+      Toast("注册成功");
+      localStorage.setItem("userInfo", JSON.stringify(value));
+      router.push("./login");
+    };
+    // 提交按钮
+    const onSubmit = (value) => {
+      if (localStorage.userInfo) {
+        let userInfo = JSON.parse(localStorage.userInfo);
+        if (userInfo["用户名"] === value["用户名"]) {
+          Toast("该账号已存在");
+          return;
+        } else {
+          register(value);
+        }
+      } else {
+        register(value);
+      }
+    };
+
+    //去登录
+    const toLogin = () => {
+      router.push("./login");
+    };
     return {
       ...toRefs(data),
       onSubmit,
+      toLogin,
     };
   },
 };

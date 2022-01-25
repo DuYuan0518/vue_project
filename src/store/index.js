@@ -69,7 +69,7 @@ export default createStore({
     CHANGEADDRESS(state, value) {
       state.userAddress = state.userAddress.map((item) => {
         if (value.isDefault) {
-          item.isDefault = fasle;
+          item.isDefault = false;
         }
         return item.id === value.id ? value : item;
       });
