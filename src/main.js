@@ -17,6 +17,8 @@ import {
   Checkbox,
   CheckboxGroup,
   SubmitBar,
+  AddressList,
+  AddressEdit,
   ContactCard,
 } from 'vant';
 import router from './router/index';
@@ -27,6 +29,8 @@ const app = createApp(App);
 
 app
   .use(Button)
+  .use(AddressList)
+  .use(AddressEdit)
   .use(Dialog)
   .use(Card)
   .use(Icon)

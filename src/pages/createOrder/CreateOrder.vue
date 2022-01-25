@@ -82,7 +82,9 @@ export default {
     });
 
     //地址编辑按钮
-    const onEdit = () => {};
+    const onEdit = () => {
+      router.push("./address");
+    };
 
     // 生成订单按钮
     const handleCreateOrder = () => {
