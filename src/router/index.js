@@ -65,6 +65,10 @@ const router = createRouter({
       path: '/register',
       component: () => import('../pages/register/Register'),
     },
+    {
+      path: '/userinfoedit',
+      component: () => import('../pages/userInfoEdit/UserInfoEdit'),
+    },
   ],
 });
 
